@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<nav
+					aria-label="breadcrumb"
+					class="d-flex justify-content-center">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index">Home</a></li>
+						<li class="breadcrumb-item"><a href="category">Girls</a></li>
+						<li
+							class="breadcrumb-item"
+							th:text="${product.name}">Burton Jacky Shirt</li>
+					</ol>
+				</nav>
+				<div class="row page-top">
+					<div class="col-md-6 mx-auto">
+						<h1
+							class="product__heading"
+							th:text="${product.name}">Burton Jacky Shirt</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row product__main">
+					<div class="col-md-5 mx-auto">
+						<div class="mainImage">
+							<img
+								th:src="@{|/images/${product.imageName}|}"
+								alt=""
+								class="img-fluid">
+						</div>
+					</div>
+					<div class="col-md-4 mx-auto">
+					<!-- th:action="@{|/cart?id=${productDetail.size}&quantity=${productDetail.quantity}|}" -->
+						<form
+							th:object="${productDetail}"
+							th:action="@{|/cart|}"
+							method="post">
+							<p
+								class="price"
+								th:text="'$' + ${product.price}">$124.00</p>
+							<div class="row">
+								<div class="col-lg-6 mx-auto">
+									<div class="form-group">
+										<label for="size">Choose your size</label> <select
+											th:field="*{id}"
+											id="size"
+											class="form-control size"
+											onchange="changeQty()">
+											<option
+												value="${productDetail.size}"
+												selected></option>
+											<option
+												th:each="detail : ${details}"
+												th:value="${detail.id}"
+												th:text="${detail.size}"
+												id="size"
+												></option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="quantity">Quantity</label> <input
+											type="number"
+											value="1"
+											id="quantity"
+											class="form-control"
+											th:field=*{quantity}>
+										<p id="showQty"></p>
+									</div>
+								</div>
+							</div>
+							<p class="text-center">
+								<button
+									type="submit"
+									class="btn btn-outline-primary">
+									<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart
+								</button>
+								<button
+									type="submit"
+									data-toggle="tooltip"
+									data-placement="top"
+									title=""
+									class="btn btn-outline-secondary"
+									data-original-title="Add to wishlist">
+									<i class="fa fa-heart-o"></i>
+								</button>
+							</p>
+						</form>
+						<div
+							class="product__details"
+							th:text="${product.description}"></div>
+						<div class="product__social social">
+							<h4>Show it to your friends</h4>
+							<p>
+								<a
+									href="#"
+									data-animate-hover="pulse"
+									class="external facebook"><i class="fa fa-facebook"></i></a><a
+									href="#"
+									data-animate-hover="pulse"
+									class="external gplus"><i class="fa fa-google-plus"></i></a><a
+									href="#"
+									data-animate-hover="pulse"
+									class="external twitter"><i class="fa fa-twitter"></i></a><a
+									href="#"
+									data-animate-hover="pulse"
+									class="email"><i class="fa fa-envelope"></i></a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 mx-auto">
+						<!-- similar products-->
+						<section class="products-similar">
+							<div class="row">
+								<div class="col-lg-3 col-md-6">
+									<h3>You may also like these products</h3>
+								</div>
+								<!-- product-->
+								<div class="col-lg-3 col-md-6">
+									<div class="product">
+										<div class="image">
+											<a href="detail.html"><img
+												src="img/product2.jpg"
+												alt=""
+												class="img-fluid"></a>
+											<div class="quick-view-button">
+												<a
+													href="#"
+													data-toggle="modal"
+													data-target="#product-quick-view-modal"
+													class="btn btn-light btn-sm">Quick view</a>
+											</div>
+										</div>
+										<div class="text">
+											<p class="brand">
+												<a href="#"></a>
+											</p>
+											<h3>
+												<a href="detail.html">Fur coat</a>
+											</h3>
+											<p class="price">$143</p>
+										</div>
+									</div>
+								</div>
+								<!-- /product-->
+								<!-- product-->
+								<div class="col-lg-3 col-md-6">
+									<div class="product">
+										<div class="image">
+											<a href="detail.html"><img
+												src="img/product3.jpg"
+												alt=""
+												class="img-fluid"></a>
+											<div class="quick-view-button">
+												<a
+													href="#"
+													data-toggle="modal"
+													data-target="#product-quick-view-modal"
+													class="btn btn-light btn-sm">Quick view</a>
+											</div>
+										</div>
+										<div class="text">
+											<p class="brand">
+												<a href="#"></a>
+											</p>
+											<h3>
+												<a href="detail.html">Fur coat</a>
+											</h3>
+											<p class="price">$113</p>
+										</div>
+									</div>
+								</div>
+								<!-- /product-->
+								<!-- product-->
+								<div class="col-lg-3 col-md-6">
+									<div class="product">
+										<div class="image">
+											<a href="detail.html"><img
+												src="img/product1.jpg"
+												alt=""
+												class="img-fluid"></a>
+											<div class="quick-view-button">
+												<a
+													href="#"
+													data-toggle="modal"
+													data-target="#product-quick-view-modal"
+													class="btn btn-light btn-sm">Quick view</a>
+											</div>
+										</div>
+										<div class="text">
+											<p class="brand">
+												<a href="#"></a>
+											</p>
+											<h3>
+												<a href="detail.html">Fur coat</a>
+											</h3>
+											<p class="price">$121</p>
+										</div>
+									</div>
+								</div>
+								<!-- /product-->
+							</div>
+						</section>
+						<!-- /similar products-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- quick view modal box-->
+		<div
+			id="product-quick-view-modal"
+			tabindex="-1"
+			role="dialog"
+			aria-hidden="false"
+			class="modal fade">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button
+							type="button"
+							data-dismiss="modal"
+							aria-hidden="true"
+							class="close">×</button>
+						<div class="row quick-view product-main">
+							<div class="col-md-6">
+								<div class="quick-view-main-image">
+									<img
+										src="img/detailbig1.jpg"
+										alt=""
+										class="img-fluid">
+								</div>
+								<div class="ribbon ribbon-quick-view sale">
+									<div class="theribbon">Sale</div>
+									<div class="ribbon-background"></div>
+								</div>
+								<!-- /.ribbon-->
+								<div class="ribbon ribbon-quick-view new">
+									<div class="theribbon">New</div>
+									<div class="ribbon-background"></div>
+								</div>
+								<!-- /.ribbon-->
+								<div class="row thumbs">
+									<div class="col-4">
+										<a
+											href="img/detailbig1.jpg"
+											class="thumb active"><img
+											src="img/detailsmall1.jpg"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+									<div class="col-4">
+										<a
+											href="img/detailbig2.jpg"
+											class="thumb"><img
+											src="img/detailsmall2.jpg"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+									<div class="col-4">
+										<a
+											href="img/detailbig3.jpg"
+											class="thumb"><img
+											src="img/detailsmall3.jpg"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h2 class="product__heading">Burton Jacky Shirt</h2>
+								<p class="text-muted text-small text-center">A collection of
+									textile samples lay spread out on the table - Samsa was a
+									travelling salesman - and above it there hung a picture that he
+									had recently cut...</p>
+								<div class="box">
+									<form>
+										<p class="price">$124.00</p>
+										<div class="row">
+											<div class="col-md-6 mx-auto">
+												<div class="form-group">
+													<label for="modal_size">Choose your size</label> <select
+														id="modal_size"
+														class="form-control">
+														<option>Small</option>
+														<option>Medium</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="modal_quantity">Quantity</label> <input
+														type="number"
+														value="1"
+														id="modal_quantity"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+										<p class="text-center">
+											<button
+												type="submit"
+												class="btn btn-outline-primary">
+												<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart
+											</button>
+											<button
+												type="submit"
+												data-toggle="tooltip"
+												data-placement="top"
+												title=""
+												class="btn btn-outline-secondary"
+												data-original-title="Add to wishlist">
+												<i class="fa fa-heart-o"></i>
+											</button>
+										</p>
+									</form>
+								</div>
+								<!-- /.box-->
+								<div class="quick-view-social">
+									<h4>Show it to your friends</h4>
+									<p>
+										<a
+											href="#"
+											data-animate-hover="pulse"
+											class="external facebook"><i class="fa fa-facebook"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="external gplus"><i class="fa fa-google-plus"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="external twitter"><i class="fa fa-twitter"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="email"><i class="fa fa-envelope"></i></a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-dialog-->
+		</div>
+		<!-- /.modal-->
+		<!-- /quick view modal box-->
+	</div>
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+	<script th:inline="javascript">
+function changeQty(x) {
+	let quantity = 0;
+    var x = document.getElementById("size").value;
+    var details = /*[[${details}]]*/ [];
+    for(let i = 0; i < details.length; i++){
+    	if(details[i].id == x){
+    		document.getElementById("showQty").innerHTML = "There are " + details[i].quantity +" products in inventory";
+    	}
+    };
+}
+</script>
+</body>
+</html>

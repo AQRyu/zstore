@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta
+	http-equiv="x-ua-compatible"
+	content="ie=edge">
+<title>Save product detail</title>
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	th:href="@{/css/mdb.min.css}"
+	href="css/mdb.min.css"
+	rel="stylesheet">
+<!-- My style -->
+<link
+	th:href="@{/css/style.css}"
+	href="css/style.css"
+	rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<h5 class="card-header info-color white-text text-center py-4">
+				<strong>Save product detail</strong>
+			</h5>
+			<div class="card-body px-lg-5 pt-0">
+				<form
+					th:object="${variant}"
+					th:action="@{save}"
+					method="post"
+					class="text-center"
+					enctype="multipart/form-data">
+					<div th:if="${variant?.id}">
+						<input
+							type="text"
+							th:field=*{id}
+							hidden=true />
+					</div>
+					<!-- <div class="md-form">
+						<input
+							th:field="*{color}"
+							type="text"
+							id="color"
+							class="form-control"><label for="color">Color</label>
+					</div> -->
+					<div class="md-form">
+					<div class="text-left text-muted">Size</div>
+						<select
+							class="custom-select"
+							id="size"
+							name="size">
+							<option value="Small">Small</option>
+							<option value="Medium" selected>Medium</option>
+							<option value="Large">Large</option>
+							<option value="XL">XL</option>
+							<option value="XXL">XXL</option>
+							<option value="3XL">3XL</option>
+						</select>
+					</div>
+					<div class="md-form">
+						<label for="quantity">Quantity</label> <input
+							th:field="*{quantity}"
+							type="number"
+							id="quantity"
+							class="form-control"
+							placeholder="">
+					</div>
+					<button
+						class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+						type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<!-- Bootstrap tooltips -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/popper.min.js}"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- MDB core JavaScript -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/mdb.min.js}"></script>
+</body>
+</html>

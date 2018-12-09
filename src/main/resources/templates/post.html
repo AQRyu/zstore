@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	
+	
+	<div class="container">
+      <div class="row"> </div>
+      <div class="row"> 
+        <div class="col-lg-12">
+          <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+              <li aria-current="page" class="breadcrumb-item active">Post Title</li>
+            </ol>
+          </nav>
+          <div class="row page-top">
+            <div class="col-md-8 mx-auto text-center">
+              <h1>Post title</h1>
+              <p class="author-date-top">By <a href="#">John Slim</a> |  January 16, 2016</p>
+              <p class="lead text-muted">This is the lead paragraph of the article. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="blog-post" class="col-lg-9">
+          <div id="post-content">
+            <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+            <p><img src="img/blog2.jpg" alt="Example blog post alt" class="img-fluid"></p>
+            <h2>Header Level 2</h2>
+            <ol>
+              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+            </ol>
+            <blockquote class="blockquote">
+              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
+            </blockquote>
+            <h3>Header Level 3</h3>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+              <li>Aliquam tincidunt mauris eu risus.</li>
+            </ul>
+            <p><img src="img/blog.jpg" alt="Example blog post alt" class="img-fluid"></p>
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+          </div>
+          <!-- /#post-content-->
+          <div id="comments">
+            <h4>2 comments</h4>
+            <div class="row comment">
+              <div class="col-md-3 col-lg-2 text-center text-md-left">
+                <p><img src="img/blog-avatar2.jpg" alt="" class="img-fluid rounded-circle"></p>
+              </div>
+              <div class="col-md-9 col-lg-10">
+                <h5>Julie Alma</h5>
+                <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2011 at 12:00 am</p>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+              </div>
+            </div>
+            <!-- /.comment-->
+            <div class="row comment last">
+              <div class="col-md-3 col-lg-2 text-center text-md-left">
+                <p><img src="img/blog-avatar.jpg" alt="" class="img-fluid rounded-circle"></p>
+              </div>
+              <div class="col-md-9 col-lg-10">
+                <h5>Louise Armero</h5>
+                <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2012 at 12:00 am</p>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+              </div>
+            </div>
+            <!-- /.comment-->
+          </div>
+          <!-- /#comments-->
+          <div id="comment-form">
+            <h4>Leave comment</h4>
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input id="name" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input id="email" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="comment">Comment <span class="required">*</span></label>
+                    <textarea id="comment" rows="4" class="form-control"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-right">
+                  <button class="btn btn-outline-primary"><i class="fa fa-comment-o"></i> Post comment</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /.col-md-9-->
+        <div class="col-md-3">
+          <div class="card card-default sidebar-menu">
+            <div class="card-heading">
+              <h5 class="card-title">Categories</h5>
+            </div>
+            <div class="card-body">
+              <div aria-orientation="vertical" class="nav flex-column nav-pills">
+                <li><a href="blog.html" class="nav-link">About us</a></li>
+                <li><a href="blog.html" class="nav-link">Fashion</a></li>
+                <li><a href="blog.html" class="nav-link">News and gossip</a></li>
+                <li><a href="blog.html" class="nav-link">Design</a></li>
+              </div>
+            </div>
+          </div>
+          <div class="banner"><a href="category.html"><img src="img/banner.jpg" alt="" class="img-fluid"></a></div>
+        </div>
+        <!-- /.col-md-3-->
+      </div>
+    </div>
+	
+	
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+</body>
+</html>

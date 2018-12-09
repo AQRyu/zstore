@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+<meta charset="utf-8">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta
+	http-equiv="x-ua-compatible"
+	content="ie=edge">
+<title>ZStore</title>
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	href="css/mdb.min.css"
+	rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link
+	href="css/style.css"
+	rel="stylesheet">
+</head>
+<body>
+	<div
+		class="topbar"
+		id="topbar"
+		th:fragment="topbar">
+		<div class="container">
+			<div class="topbar__content row">
+				<div class="col-md-3 ml-auto d-md-block d-none">
+					<form class="topbar__search">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button
+									type="button"
+									class="btn">
+									<i class="fa fa-search"></i>
+								</button>
+							</span> <input
+								type="text"
+								placeholder="SEARCH"
+								class="form-control">
+						</div>
+					</form>
+				</div>
+				<div class="col-md-4 topbar__logo">
+					<a th:href="index"><img
+						th:src="@{/img/logo.png}"
+						alt=""
+						class="topbar__logo__normal d-none d-md-inline-block"><img
+						th:src="@{/img/logo-small.png}"
+						alt=""
+						class="topbar__logo__small d-inline-block d-md-none"></a>
+				</div>
+				<div class="col-md-3 ml-auto d-md-block d-none">
+					<div class="topbar__cart">
+						<a
+							th:href="@{/cart}"
+							href="basket.html"
+							class="btn btn-outline-dark"><i class="fa fa-shopping-cart"></i><span>3
+								Items in cart</span></a>
+					</div>
+					<div class="top_bar_user">
+						<div class="user_icon">
+							<img
+								src="images/user.svg"
+								alt="">
+						</div>
+						<div
+							class="logout"
+							sec:authorize="isAuthenticated()">
+							<a th:href="@{/logout}">Logout</a>
+						</div>
+						<div sec:authorize="isAnonymous()">
+							<div>
+								<a href="#">Register</a>
+							</div>
+							<div>
+								<a
+									th:href="@{/login}"
+									href="#">Sign in</a>
+							</div>
+						</div>
+					</div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		id="intro-slider"
+		class="owl-carousel owl-theme-default"
+		th:fragment="intro-slider">
+		<div
+			style="background-image: url('img/intro1.jpg');"
+			class="item intro-item">
+			<div class="overlay"></div>
+			<div class="content">
+				<h3>The one and Only</h3>
+				<h1>Hipster E-commerce Theme</h1>
+				<p>
+					<img
+						th:src="@{/img/logo-white-small.png}"
+						alt="">
+				</p>
+			</div>
+		</div>
+		<div
+			style="background-image: url('img/intro2.jpg');"
+			class="item intro-item">
+			<div class="overlay"></div>
+			<div class="content">
+				<h3>14 Pages Included</h3>
+				<h3>Fully Responsive</h3>
+				<h3>7 colour variants</h3>
+				<h3>Based on Bootstrap 4.1.1</h3>
+				<h3>SASS files included in the download</h3>
+			</div>
+		</div>
+		<div
+			style="background-image: url('img/intro3.jpg');"
+			class="item intro-item">
+			<div class="overlay"></div>
+			<div class="content">
+				<h3>And much more!</h3>
+				<p>
+					<img
+						th:src="@{/img/logo-white-small.png}"
+						alt="">
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- /#intro-slider-->
+	<nav
+		class="navbar navbar-expand-lg"
+		id="navbar"
+		th:fragment="navbar">
+		<div class="container d-flex justify-content-center">
+			<button
+				type="button"
+				data-toggle="collapse"
+				data-target=".collapsed-search"
+				class="navbar-toggler btn btn-outline-dark">
+				<i class="fa fa-search"></i><span class="sr-only">Toggle
+					navigation</span>
+			</button>
+			<a
+				th:href="@{/cart}"
+				href="basket.html"
+				class="navbar-toggler btn btn-outline-dark"><i
+				class="fa fa-shopping-cart"></i><span class="d-none d-lg-block">3
+					Items in cart</span></a>
+			<button
+				type="button"
+				data-toggle="collapse"
+				data-target="#navigation"
+				class="navbar-toggler btn btn-outline-dark">
+				<i class="fa fa-align-justify"></i><span class="sr-only">Toggle
+					navigation</span>
+			</button>
+			<div
+				id="navigation"
+				class="collapse navbar-collapse">
+				<ul class="nav navbar-nav mx-auto">
+					<li class="nav-item"><a
+						th:href="@{/category}"
+						href="category"
+						class="nav-link">Shop</a></li>
+					<li class="nav-item"><a
+						th:href="@{/about}"
+						href="about"
+						class="nav-link">About</a></li>
+					<li class="nav-item"><a
+						th:href="@{/contact}"
+						href="contact"
+						class="nav-link">Contact</a></li>
+				</ul>
+			</div>
+			<div class="collapsed-search collapse">
+				<form>
+					<div class="input-group">
+						<input
+							type="text"
+							placeholder="Search"
+							class="form-control">
+						<div class="input-group-append">
+							<button
+								type="button"
+								class="btn outline-dark">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

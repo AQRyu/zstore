@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+<link
+	th:href="@{/css/style.css}"
+	rel="stylesheet"
+	href="css/style.css"
+	id="theme-stylesheet">
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<div th:replace="/fragments/header :: intro-slider"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	<div class="container">
+		<section>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading">
+						<h4>Featured collections</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<a
+						href="#"
+						class="margin-bottom"><img
+						th:src="@{/img/promobox-item-1.jpg}"
+						alt=""
+						class="img-fluid img-border"></a>
+				</div>
+				<div class="col-md-4">
+					<a
+						href="#"
+						class="margin-bottom"><img
+						th:src="@{/img/promobox-item-2.jpg}"
+						alt=""
+						class="img-fluid img-border"></a>
+				</div>
+				<div class="col-md-4">
+					<a
+						href="#"
+						class="margin-bottom"><img
+						th:src="@{/img/promobox-item-3.jpg}"
+						alt=""
+						class="img-fluid img-border"></a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading">
+						<h4>Trending this month</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row products">
+				<div
+					class="col-md-3 col-6"
+					th:each="product : ${products}">
+					<div class="product">
+						<div class="image">
+							<a href="#"><img
+								width="472px"
+								height="600px"
+								th:src="@{|/images/${product.imageName}|}"
+								alt=""
+								class="img-fluid"></a>
+							<div class="quick-view-button">
+								<a
+									href="#"
+									data-toggle="modal"
+									data-target="#product-quick-view-modal"
+									class="btn btn-light btn-sm">Quick view</a>
+							</div>
+						</div>
+						<div class="text">
+							<h3>
+								<a
+									th:href="@{|/detail?productId=${product.id}|}"
+									th:text="${product.name}">Fur coat</a>
+							</h3>
+						</div>
+						<div class="text">
+							<p
+								class="price"
+								th:utext="'$'+${product.salePrice}">$143</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div
+		style="background-image: url('img/slider3.jpg');"
+		class="bar background-image-fixed color-white text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<div class="icon margin-bottom">
+						<i class="fa fa-send"></i>
+					</div>
+					<h3>Place for some call to action</h3>
+					<p>Donec eu libero sit amet quam egestas semper. Aenean
+						ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+					<p>
+						<a
+							th:href="@{/category}"
+							href="category"
+							class="btn btn-outline-light">Click here</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<section>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading">
+						<h4>From our blog</h4>
+					</div>
+					<p class="text-center text-muted">What's new in the world of
+						fashion? Check out our blog!</p>
+				</div>
+			</div>
+			<div
+				id="blog-homepage"
+				class="row">
+				<div class="col-sm-6">
+					<div class="post">
+						<div class="image">
+							<img
+								th:src="@{/img/blog.jpg}"
+								alt=""
+								class="img-fluid">
+						</div>
+						<h4>
+							<a th:href="post.html">Fashion now</a>
+						</h4>
+						<p class="post__intro">ellentesque habitant morbi tristique
+							senectus et netus et malesuada fames ac turpis egestas.
+							Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
+							amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+							ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+						<p class="read-more">
+							<a
+								href="#"
+								class="btn btn-outline-primary">Continue reading</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="post">
+						<div class="image">
+							<img
+								th:src="@{/img/blog2.jpg}"
+								alt=""
+								class="img-fluid">
+						</div>
+						<h4>
+							<a th:href="post.html">Fashion now</a>
+						</h4>
+						<p class="post__intro">ellentesque habitant morbi tristique
+							senectus et netus et malesuada fames ac turpis egestas.
+							Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
+							amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+							ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+						<p class="read-more">
+							<a
+								href="#"
+								class="btn btn-outline-primary">Continue reading</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- quick view modal box-->
+		<div
+			id="product-quick-view-modal"
+			tabindex="-1"
+			role="dialog"
+			aria-hidden="false"
+			class="modal fade">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button
+							type="button"
+							data-dismiss="modal"
+							aria-hidden="true"
+							class="close">×</button>
+						<div class="row quick-view product-main">
+							<div class="col-md-6">
+								<div class="quick-view-main-image">
+									<img
+										th:src="@{/img/detailbig1.jpg}"
+										alt=""
+										class="img-fluid">
+								</div>
+								<div class="ribbon ribbon-quick-view sale">
+									<div class="theribbon">Sale</div>
+									<div class="ribbon-background"></div>
+								</div>
+								<!-- /.ribbon-->
+								<div class="ribbon ribbon-quick-view new">
+									<div class="theribbon">New</div>
+									<div class="ribbon-background"></div>
+								</div>
+								<!-- /.ribbon-->
+								<div class="row thumbs">
+									<div class="col-4">
+										<a
+											href="img/detailbig1.jpg"
+											class="thumb"><img
+											th:src="@{/img/detailsmall1.jpg}"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+									<div class="col-4">
+										<a
+											href="img/detailbig2.jpg"
+											class="thumb"><img
+											th:src="@{/img/detailsmall2.jpg}"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+									<div class="col-4">
+										<a
+											href="img/detailbig3.jpg"
+											class="thumb"><img
+											th:src="@{/img/detailsmall3.jpg}"
+											alt=""
+											class="img-fluid"></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h2 class="product__heading">Burton Jacky Shirt</h2>
+								<p class="text-muted text-small text-center">A collection of
+									textile samples lay spread out on the table - Samsa was a
+									travelling salesman - and above it there hung a picture that he
+									had recently cut...</p>
+								<div class="box">
+									<form>
+										<p class="price">$124.00</p>
+										<div class="row">
+											<div class="col-md-6 mx-auto">
+												<div class="form-group">
+													<label for="modal_size">Choose your size</label> <select
+														id="modal_size"
+														class="form-control">
+														<option>Small</option>
+														<option>Medium</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="modal_quantity">Quantity</label> <input
+														type="number"
+														value="1"
+														id="modal_quantity"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+										<p class="text-center">
+											<button
+												type="submit"
+												class="btn btn-outline-primary">
+												<i class="fa fa-shopping-cart"></i>&nbsp;Add to cart
+											</button>
+											<button
+												type="submit"
+												data-toggle="tooltip"
+												data-placement="top"
+												title="Add to wishlist"
+												class="btn btn-outline-secondary">
+												<i class="fa fa-heart-o"></i>
+											</button>
+										</p>
+									</form>
+								</div>
+								<!-- /.box-->
+								<div class="quick-view-social">
+									<h4>Show it to your friends</h4>
+									<p>
+										<a
+											href="#"
+											data-animate-hover="pulse"
+											class="external facebook"><i class="fa fa-facebook"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="external gplus"><i class="fa fa-google-plus"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="external twitter"><i class="fa fa-twitter"></i></a><a
+											href="#"
+											data-animate-hover="pulse"
+											class="email"><i class="fa fa-envelope"></i></a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-dialog-->
+		</div>
+		<!-- /.modal-->
+		<!-- /quick view modal box-->
+	</div>
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+</body>
+</html>

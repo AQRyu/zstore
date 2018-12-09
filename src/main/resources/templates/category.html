@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	
+	
+	
+	<div class="container">
+      <div class="row"> 
+        <div class="col-lg-12">
+          <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">Ladies</li>
+            </ol>
+          </nav>
+          <div class="row page-top">
+            <div class="col-md-6 mx-auto">
+              <h1>Ladies</h1>
+              <p class="text-muted">In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide. Pellentesque habitant morbi tristique senectus et netuss.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <!-- menus and filters-->
+          <div class="card card-default sidebar-menu">
+            <div class="card-heading">
+              <h5 class="card-title">Categories</h5>
+            </div>
+            <div class="card-body">
+              <ul class="nav nav-pills flex-column category-menu">
+                <li><a href="category.html" class="nav-link d-flex align-items-center justify-content-between">Men <span class="badge badge-secondary pull-right">42</span></a>
+                  <ul>
+                    <li> <a href="category.html">T-shirts</a></li>
+                    <li><a href="category.html">Shirts</a></li>
+                    <li><a href="category.html">Pants</a></li>
+                    <li><a href="category.html">Accessories</a></li>
+                  </ul>
+                </li>
+                <li><a href="category.html" class="nav-link active d-flex align-items-center justify-content-between">Girls <span class="badge badge-light pull-right text-primary">120</span></a>
+                  <ul>
+                    <li> <a href="category.html">T-shirts</a></li>
+                    <li><a href="category.html">Skirts</a></li>
+                    <li><a href="category.html">Pants</a></li>
+                    <li><a href="category.html">Accessories</a></li>
+                  </ul>
+                </li>
+                <li><a href="category.html" class="nav-link d-flex align-items-center justify-content-between">Kids <span class="badge badge-secondary pull-right">85</span></a>
+                  <ul>
+                    <li> <a href="category.html">T-shirts</a></li>
+                    <li><a href="category.html">Skirts</a></li>
+                    <li><a href="category.html">Pants</a></li>
+                    <li><a href="category.html">Accessories</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card card-default sidebar-menu">
+            <div class="card-heading">
+              <h5 class="card-title d-flex align-items-center justify-content-between">Brands <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a></h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group"></div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Quiksilver 
+                    (25)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Etnies 
+                    (30)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Billabong 
+                    (18)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Changla 
+                    (31)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Emerica 
+                    (24)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" class="mr-1">Santa Cruz 
+                    (24)
+                  </label>
+                </div>
+                <button class="btn btn-sm btn-outline-primary mt-3"><i class="fa fa-pencil"></i> Apply</button>
+              </form>
+            </div>
+          </div>
+          <div class="card card-default sidebar-menu">
+            <div class="card-heading">
+              <h5 class="card-title d-flex align-items-center justify-content-between">Colours<a class="btn btn-sm btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a></h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group"></div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"><span class="colour white"></span>White  (25)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"><span class="colour blue"></span>Blue  (10)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"><span class="colour green"></span>Green  (20)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"><span class="colour yellow"></span>Yellow  (15)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"><span class="colour red"></span>Red  (24)
+                  </label>
+                </div>
+                <button class="btn btn-sm btn-outline-primary mt-3"><i class="fa fa-pencil"></i> Apply</button>
+              </form>
+            </div>
+          </div>
+          <!-- /menus and filters-->
+          <div class="banner"><a href="category.html"><img src="img/banner.jpg" alt="" class="img-fluid"></a></div>
+        </div>
+        <div class="col-lg-9">
+          <div class="info-bar">
+            <div class="row">
+              <div class="col-md-12 col-lg-4 products-showing text-center text-md-left">Showing <strong>12</strong> of <strong>25</strong> products</div>
+              <div class="col-md-12 col-lg-8 products-number-sort">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="products-number text-center text-md-left">
+                      <strong>Show</strong> <a href="#" class="btn btn-sm btn-outline-primary">12</a> 
+                      <a href="#" class="btn btn-outline-secondary btn-sm">24</a> 
+                      <a href="#" class="btn btn-outline-secondary btn-sm">All</a> 
+                      <span class="hidden-md">products</span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="products-sort-by d-flex justify-content-center justify-content-md-end mt-2 mt-md-0"><strong>Sort by</strong>
+                      <select name="sort-by" class="form-control"><option>Price</option><option>Name</option><option>Sales first</option></select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row products">
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product4.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Quiksilver</a></p>
+                      <h3> <a href="detail.html">Funky Shirt with Long name</a></h3>
+                      <p class="price">$143</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product5.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Ripcurl</a></p>
+                      <h3> <a href="detail.html">Shirt</a></h3>
+                      <p class="price">$113</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product6.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Billabong</a></p>
+                      <h3> <a href="detail.html">Yet Another Shirt</a></h3>
+                      <p class="price">$121</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+          </div>
+          <div class="row products">
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product7.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Quiksilver</a></p>
+                      <h3> <a href="detail.html">Dress</a></h3>
+                      <p class="price">$143</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product8.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Ripcurl</a></p>
+                      <h3> <a href="detail.html">Tee Shirt</a></h3>
+                      <p class="price">$113</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product9.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Billabong</a></p>
+                      <h3> <a href="detail.html">Blouse</a></h3>
+                      <p class="price">$121</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+          </div>
+          <div class="row products">
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product1.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Quiksilver</a></p>
+                      <h3> <a href="detail.html">Shirt Jonny</a></h3>
+                      <p class="price">$143</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product2.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Ripcurl</a></p>
+                      <h3> <a href="detail.html">Funky Shirt with Long name</a></h3>
+                      <p class="price">$113</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+                <!-- product-->
+                <div class="col-lg-4 col-md-6">
+                  <div class="product"> 
+                    <div class="image"><a href="detail.html"><img src="img/product3.jpg" alt="" class="img-fluid"></a>
+                      <div class="quick-view-button"><a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-light btn-sm">Quick view</a></div>
+                    </div>
+                    <div class="text">
+                      <p class="brand"><a href="#">Billabong</a></p>
+                      <h3> <a href="detail.html">Starshine Shirt</a></h3>
+                      <p class="price">$121</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- /product-->
+          </div>
+          <div class="row">
+            <div class="col-lg-12 banner"><a href="#"><img src="img/banner2.jpg" alt="" class="img-fluid"></a></div>
+          </div>
+          <div class="pages">
+            <p class="loadMore"><a href="#" class="btn btn-outline-primary"><i class="fa fa-chevron-down"></i> Load more</a></p>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination d-flex justify-content-center mb-5">
+                <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">4</a></li>
+                <li class="page-item"><a href="#" class="page-link">5</a></li>
+                <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- quick view modal box-->
+      <div id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false" class="modal fade">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+              <div class="row quick-view product-main">
+                <div class="col-md-6">
+                  <div class="quick-view-main-image"><img src="img/detailbig1.jpg" alt="" class="img-fluid"></div>
+                  <div class="ribbon ribbon-quick-view sale">
+                    <div class="theribbon">Sale</div>
+                    <div class="ribbon-background"></div>
+                  </div>
+                  <!-- /.ribbon-->
+                  <div class="ribbon ribbon-quick-view new">
+                    <div class="theribbon">New</div>
+                    <div class="ribbon-background"></div>
+                  </div>
+                  <!-- /.ribbon-->
+                  <div class="row thumbs">
+                    <div class="col-4"><a href="img/detailbig1.jpg" class="thumb active"><img src="img/detailsmall1.jpg" alt="" class="img-fluid"></a></div>
+                    <div class="col-4"><a href="img/detailbig2.jpg" class="thumb"><img src="img/detailsmall2.jpg" alt="" class="img-fluid"></a></div>
+                    <div class="col-4"><a href="img/detailbig3.jpg" class="thumb"><img src="img/detailsmall3.jpg" alt="" class="img-fluid"></a></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h2 class="product__heading">Burton Jacky Shirt</h2>
+                  <p class="text-muted text-small text-center">A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut...</p>
+                  <div class="box">
+                    <form>
+                      <p class="price">$124.00</p>
+                      <div class="row">
+                        <div class="col-md-6 mx-auto">
+                          <div class="form-group">
+                            <label for="modal_size">Choose your size</label>
+                            <select id="modal_size" class="form-control">
+                              <option>Small</option>
+                              <option>Medium</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="modal_quantity">Quantity</label>
+                            <input type="number" value="1" id="modal_quantity" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-center">
+                        <button type="submit" class="btn btn-outline-primary"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</button>
+                        <button type="submit" data-toggle="tooltip" data-placement="top" title="" class="btn btn-outline-secondary" data-original-title="Add to wishlist"><i class="fa fa-heart-o"></i></button>
+                      </p>
+                    </form>
+                  </div>
+                  <!-- /.box-->
+                  <div class="quick-view-social">
+                    <h4>Show it to your friends</h4>
+                    <p><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal-dialog-->
+      </div>
+      <!-- /.modal-->
+      <!-- /quick view modal box-->
+    </div>
+	
+	
+<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+</body>
+</html>
