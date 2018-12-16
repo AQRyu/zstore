@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta
+	http-equiv="x-ua-compatible"
+	content="ie=edge">
+<title>Admin</title>
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	th:href="@{/css/mdb.min.css}"
+	href="css/mdb.min.css"
+	rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link
+	href="/css/style.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+	rel="stylesheet">
+</head>
+<body class="grey lighten-3">
+	<header>
+		<nav th:replace="/admin/home :: navbar"></nav>
+		
+		<div class="sidebar-fixed position-fixed" th:fragment="sidebar">
+			<a class="logo-wrapper waves-effect h1"><span class="text-red">Z
+					Store</span> </a>
+			<div class="list-group list-group-flush">
+				<a
+					href="/admin"
+					class="list-group-item list-group-item-action waves-effect"> <i
+					class="fa fa-pie-chart mr-3"></i>Dashboard
+				</a> <a
+					th:href="|@{/admin/users}|"
+					class="list-group-item active  waves-effect"> <i
+					class="fa fa-user mr-3"></i>Users
+				</a> <a
+					th:href="|@{/admin/orders}|"
+					class="list-group-item list-group-item-action waves-effect"> <i
+					class="fa fa-money mr-3"></i>Orders
+				</a>
+			</div>
+		</div>
+	</header>
+	<!--Main layout-->
+	<main class="pt-5 mx-lg-5">
+	<div class="container-fluid mt-5">
+		<!-- Heading -->
+		<div class="card mb-4 wow fadeIn">
+			<!--Card content-->
+			<div class="card-body d-sm-flex justify-content-between">
+				<h4 class="mb-2 mb-sm-0 pt-1">
+					<a
+						href="/admin"
+						target="_blank">Home Page</a> <span>/</span> <span>Users</span>
+				</h4>
+			</div>
+		</div>
+		<!-- Heading -->
+		<!-- Heading -->
+		<div class="card mb-4 wow fadeIn">
+			<!-- Card header -->
+			<div class="card-header text-center h2">Users Control</div>
+			<div class="card-body">
+				<table
+					id="usersTable"
+					class="display table table-striped table-bordered">
+					<caption>List of users</caption>
+					<!-- Header Table -->
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>City</th>
+							<th>Phone</th>
+							<th>Enabled</th>
+							<th>ExpiredDate</th>
+							<th>Role</th>
+						</tr>
+					</thead>
+					<!-- Footer Table -->
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>City</th>
+							<th>Phone</th>
+							<th>Enabled</th>
+							<th>ExpiredDate</th>
+							<th>Role</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<!-- Heading -->
+	</div>
+	</main>
+	<!--Main layout-->
+	<!--Footer-->
+	<footer
+		class="page-footer fixed-bottom text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
+		<!--Call to action-->
+		<!-- Social icons -->
+		<div class="pb-4 pt-4">
+			<a
+				href="https://www.facebook.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-facebook mr-3"></i>
+			</a> <a
+				href="https://twitter.com/MDBootstrap"
+				target="_blank"> <i class="fa fa-twitter mr-3"></i>
+			</a> <a
+				href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4"
+				target="_blank"> <i class="fa fa-youtube mr-3"></i>
+			</a> <a
+				href="https://plus.google.com/u/0/b/107863090883699620484"
+				target="_blank"> <i class="fa fa-google-plus mr-3"></i>
+			</a> <a
+				href="https://dribbble.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-dribbble mr-3"></i>
+			</a> <a
+				href="https://pinterest.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-pinterest mr-3"></i>
+			</a> <a
+				href="https://github.com/mdbootstrap/bootstrap-material-design"
+				target="_blank"> <i class="fa fa-github mr-3"></i>
+			</a> <a
+				href="http://codepen.io/mdbootstrap/"
+				target="_blank"> <i class="fa fa-codepen mr-3"></i>
+			</a>
+		</div>
+		<!-- Social icons -->
+		<!--Copyright-->
+		<div class="footer-copyright py-3">
+			© 2018 Copyright: <a
+				href="https://mdbootstrap.com/bootstrap-tutorial/"
+				target="_blank"> MDBootstrap.com </a>
+		</div>
+		<!--/.Copyright-->
+	</footer>
+	<!--/.Footer-->
+	<div th:fragment="script">
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/jquery-3.3.1.min.js}"
+			src="/js/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/popper.min.js}"
+			src="/js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/bootstrap.min.js}"
+			src="/js/bootstrap.min.js"></script>
+		<!-- ZStore core JavaScript -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/mdb.min.js}"
+			src="/js/mdb.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				var table = $('#usersTable').DataTable({
+					"sAjaxSource" : "/api/users",
+					"sAjaxDataProp" : "",
+					"order" : [ [ 0, "asc" ] ],
+					"columns" : [ {
+						"data" : "id"
+					}, {
+						"data" : "name"
+					}, {
+						"data" : "email"
+					}, {
+						"data" : "address"
+					}, {
+						"data" : "city"
+					}, {
+						"data" : "phone"
+					}, {
+						"data" : "enabled"
+					}, {
+						"data" : "expiredDate"
+					}, {
+						"data" : "role.name"
+					}, ]
+				})
+			});
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta
+	http-equiv="x-ua-compatible"
+	content="ie=edge">
+<title>Material Design Bootstrap</title>
+<!-- Font Awesome -->
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link
+	th:href="@{/css/mdb.min.css}"
+	rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link
+	th:href="@{/css/style.css}"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav th:replace="/admin/home :: navbar"></nav>
+		<div
+			class="sidebar-fixed position-fixed"
+			th:fragment="sidebar">
+			<a class="logo-wrapper waves-effect h1"><span class="text-red">Z
+					Store</span> </a>
+			<div class="list-group list-group-flush">
+				<a
+					href="/merchant"
+					class="list-group-item list-group-item-action waves-effect"> <i
+					class="fa fa-pie-chart mr-3"></i>Home
+				</a> <a
+					th:href="|@{/merchant/inventory}|"
+					class="list-group-item list-group-item-action waves-effect"> <i
+					class="fa fa-user mr-3"></i>Inventory
+				</a> <a
+					th:href="|@{/merchant/orders}|"
+					class="list-group-item active waves-effect"> <i
+					class="fa fa-money mr-3"></i>Orders
+				</a>
+			</div>
+		</div>
+	</header>
+	<main class="pt-5 mx-lg-5">
+	<div class="container">
+	<div class="info" th:text="${messasge}" th:unless="${message} == null"></div>
+		<h2 class="text-center mt-5">Orders</h2>
+		<div th:if="${not #lists.isEmpty(orders.content)}">
+			<table
+				class="table table-hover"
+				id="ordersTable">
+				<thead>
+					<tr>
+						<th class="th-sm">Name</th>
+						<th class="th-sm">Size</th>
+						<th class="th-sm">price</th>
+						<th class="th-sm">quantity</th>
+						<th class="th-sm">Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody th:each="order : ${orders.content}">
+					<tr>
+						<td th:text="${order.variant.product.name}"></td>
+						<td th:text="${order.variant.size}"></td>
+						<td th:text="${order.price}"></td>
+						<td th:text="${order.quantity}"></td>
+						<td th:text="${order.status}"></td>
+						<td>
+							<div
+								class="btn-group"
+								role="group"
+								aria-label="Basic example">
+								<a
+									th:href="@{|orders/${order.id}|}"
+									class="btn-floating btn-lg btn-yellow mr-1"><i
+									class="fa fa-edit"></i></a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</main>
+	<footer
+		class="page-footer fixed-bottom text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
+		<!--Call to action-->
+		<!-- Social icons -->
+		<div class="pb-4 pt-4">
+			<a
+				href="https://www.facebook.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-facebook mr-3"></i>
+			</a> <a
+				href="https://twitter.com/MDBootstrap"
+				target="_blank"> <i class="fa fa-twitter mr-3"></i>
+			</a> <a
+				href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4"
+				target="_blank"> <i class="fa fa-youtube mr-3"></i>
+			</a> <a
+				href="https://plus.google.com/u/0/b/107863090883699620484"
+				target="_blank"> <i class="fa fa-google-plus mr-3"></i>
+			</a> <a
+				href="https://dribbble.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-dribbble mr-3"></i>
+			</a> <a
+				href="https://pinterest.com/mdbootstrap"
+				target="_blank"> <i class="fa fa-pinterest mr-3"></i>
+			</a> <a
+				href="https://github.com/mdbootstrap/bootstrap-material-design"
+				target="_blank"> <i class="fa fa-github mr-3"></i>
+			</a> <a
+				href="http://codepen.io/mdbootstrap/"
+				target="_blank"> <i class="fa fa-codepen mr-3"></i>
+			</a>
+		</div>
+		<!-- Social icons -->
+		<!--Copyright-->
+		<div class="footer-copyright py-3">
+			© 2018 Copyright: <a
+				href="https://mdbootstrap.com/bootstrap-tutorial/"
+				target="_blank"> MDBootstrap.com </a>
+		</div>
+		<!--/.Copyright-->
+	</footer>
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<div th:fragment="script">
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/jquery-3.3.1.min.js}"
+			src="/js/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/popper.min.js}"
+			src="/js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/bootstrap.min.js}"
+			src="/js/bootstrap.min.js"></script>
+		<!-- ZStore core JavaScript -->
+		<script
+			type="text/javascript"
+			th:src="@{/js/mdb.min.js}"
+			src="/js/mdb.min.js"></script>
+	</div>
+</body>
+</html>

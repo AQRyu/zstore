@@ -3,10 +3,11 @@ package com.aqryuz.zstore.service.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,8 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	private UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+	@Transactional
+	public User loadUserByUsername(String email) throws UsernameNotFoundException {
 		User user = userRepository.findByEmail(email).get();
 		System.out.println("User = " + user);
 		
@@ -35,8 +37,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		GrantedAuthority authority = new SimpleGrantedAuthority(role);
 		grantList.add(authority);
 		
-		UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), grantList);
-		return userDetails;
+		user.setGrantedAuthorities(grantList);
+		
+		return user;
 	}
 
 }

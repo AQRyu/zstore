@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<footer
+		id="footer"
+		th:fragment="footer"
+		class="page-footer unique-color-dark mt-4">
+		<div class="info-color-dark text-center py-4">
+			<!--Newsletter-->
+			<a
+				id="footer-link-newsletter"
+				href="/newsletter/"
+				class="border rounded p-2 px-3 mr-4 d-none d-md-inline-block">Newsletter
+				<i class="fa fa-envelope white-text ml-2"> </i>
+			</a>
+			<!--Newsletter-->
+			<a
+				id="footer-link-affiliate"
+				href="/mdb-affiliate-program/"
+				class="border rounded p-2 px-3 mr-4 d-none d-md-inline-block">Affiliate
+				program <i class="fa fa-money white-text ml-2"> </i>
+			</a>
+			<!--Contact-->
+			<a
+				id="footer-link-contact"
+				href="/contact"
+				data-toggle="modal"
+				data-target="#contactForm"
+				class="border rounded p-2 px-3 mr-4 d-none d-md-inline-block">Contact
+				<i class="fa fa-envelope white-text ml-2"> </i>
+			</a>
+			<!--GitHub-->
+			<a
+				rel="nofollow"
+				target="_blank"
+				id="footer-link-github"
+				href="https://github.com/mdbootstrap/bootstrap-material-design">
+				<i class="fa fa-github white-text mr-4"> </i>
+			</a>
+			<!--Youtube-->
+			<a
+				rel="nofollow"
+				target="_blank"
+				id="footer-link-youtube"
+				href="https://www.youtube.com/watch?v=cXTThxoywNQ"> <i
+				class="fa fa-youtube white-text mr-4"> </i>
+			</a>
+			<!--Facebook-->
+			<a
+				rel="nofollow"
+				target="_blank"
+				id="footer-link-facebook"
+				href="https://www.facebook.com/mdbootstrap"> <i
+				class="fa fa-facebook white-text mr-4"> </i>
+			</a>
+			<!--Twitter-->
+			<a
+				rel="nofollow"
+				target="_blank"
+				id="footer-link-twitter"
+				href="https://twitter.com/MDBootstrap"> <i
+				class="fa fa-twitter white-text"> </i>
+			</a>
+		</div>
+		<!--Footer Links-->
+		<div class="container text-center text-md-left mt-5">
+			<div class="row mt-3">
+				<!--First column-->
+				<div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+					<h6 class="text-uppercase font-weight-bold">
+						<strong>Useful links</strong>
+					</h6>
+					<hr
+						class="info-color mb-4 mt-0 d-inline-block mx-auto"
+						style="width: 60px;">
+					<p>
+						<a
+							id="footer-link-faq"
+							href="/docs/jquery/getting-started/faq/">Frequently Asked
+							Questions</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-browsers"
+							href="/general/browsers-and-devices/">Browsers and devices</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-license"
+							href="/general/license/">License</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-changelog"
+							href="/docs/jquery/changelog/">ChangeLog</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-policy"
+							href="/general/privacy-policy/">Privacy Policy</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-refund"
+							href="/general/return-refund-policy/">Return/Refund policy</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-students"
+							href="/general/mdb-academy/">Students and universities</a>
+					</p>
+				</div>
+				<!--/.First column-->
+				<!--Second column-->
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+					<h6 class="text-uppercase font-weight-bold">
+						<strong>Resources</strong>
+					</h6>
+					<hr
+						class="info-color mb-4 mt-0 d-inline-block mx-auto"
+						style="width: 60px;">
+					<p>
+						<a
+							id="footer-link-jquery"
+							href="/docs/jquery/">MDB jQuery</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-angular"
+							href="/docs/angular/">MDB Angular</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-react"
+							href="/docs/react/">MDB React</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-vue"
+							href="/docs/vue/">MDB Vue</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-brandflow"
+							href="/education/tech-marketing/automated-app-introduction/">MDB
+							BrandFlow</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-freebies"
+							href="/freebies/">Free templates</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-templates"
+							href="/templates/">Premium templates</a>
+					</p>
+				</div>
+				<!--/.Second column-->
+				<!--Third column-->
+				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+					<h6 class="text-uppercase font-weight-bold">
+						<strong>Free tutorials</strong>
+					</h6>
+					<hr
+						class="info-color mb-4 mt-0 d-inline-block mx-auto"
+						style="width: 60px;">
+					<p>
+						<a
+							id="footer-link-tutBootstrap"
+							href="/education/bootstrap/">Bootstrap &amp; web design</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutWordpress"
+							href="/education/wordpress/">WordPress</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutAngular"
+							href="/education/angular/">Angular</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutAutomation"
+							href="/education/tech-marketing/automated-app-introduction/">Automation</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutWebpush"
+							href="/education/tech-marketing/web-push-introduction/">Web
+							Push Notifications</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutGulp"
+							href="/education/bootstrap/gulp-installation/">Gulp &amp;
+							customization</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-tutWebpack"
+							href="/mdbootstrap-webpack-tutorial/">Webpack</a>
+					</p>
+					<!-- <p>
+              <a href="#!">E-mail software</a>
+            </p>
+            <p>
+              <a href="#!">Web Hosting</a>
+            </p>
+            <p>
+              <a href="#!">Bootstrap editor</a>
+            </p> -->
+				</div>
+				<!--/.Third column-->
+				<!--Fourth column-->
+				<div class="col-md-4 col-lg-3 col-xl-3">
+					<h6 class="text-uppercase font-weight-bold">
+						<strong>Company</strong>
+					</h6>
+					<hr
+						class="info-color mb-4 mt-0 d-inline-block mx-auto"
+						style="width: 60px;">
+					<p>
+						<i class="fa fa-envelope mr-3"></i> contact@mdbootstrap.com
+					</p>
+					<!-- <p>
+              <i class="fa fa-building mr-3"></i> Our story</p> -->
+					<p>
+						<a
+							id="footer-link-team"
+							href="/general/our-team/"> <i class="fa fa-users mr-3"></i>
+							Our team
+						</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-company"
+							href="/general/contact/"> <i class="fa fa-bullhorn mr-3"></i>
+							Company data
+						</a>
+					</p>
+					<p>
+						<a
+							id="footer-link-formedia"
+							href="/general/press-pack/"> <i class="fa fa-bullhorn mr-3"></i>
+							For media
+						</a>
+					</p>
+				</div>
+				<!--/.Fourth column-->
+			</div>
+		</div>
+		<!--/.Footer Links-->
+		<!-- Copyright-->
+		<div class="footer-copyright py-3 text-center">
+			© 2018 Copyright: <a href="https://www.MDBootstrap.com"> <strong>
+					MDBootstrap.com</strong>
+			</a>
+		</div>
+		<!--/.Copyright -->
+	</footer>
+	<div th:fragment="script">
+		<!-- SCRIPTS -->
+		<!-- JQuery -->
+		<script
+			type="text/javascript"
+			src="js/jquery-3.3.1.min.js"
+			th:src="@{/js/jquery-3.3.1.min.js}"></script>
+		<!-- Bootstrap tooltips -->
+		<script
+			type="text/javascript"
+			src="js/popper.min.js"
+			th:src="@{/js/popper.min.js}"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script
+			type="text/javascript"
+			src="js/bootstrap.min.js"
+			th:src="@{/js/bootstrap.min.js}"></script>
+		<!-- MDB core JavaScript -->
+		<script
+			type="text/javascript"
+			src="js/mdb.min.js"
+			th:src="@{/js/mdb.min.js}"></script>
+		<!-- Initializations -->
+		<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+	</div>
+</body>
+</html>

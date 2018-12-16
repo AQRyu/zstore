@@ -10,7 +10,7 @@ import com.aqryuz.zstore.utils.SpringSecurityAuditorAware;
 
 
 @Configuration
-@EnableJpaAuditing
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 public class JpaConfig {
 	@Bean
 	public AuditorAware<User> auditorAware(){

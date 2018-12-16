@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import com.aqryuz.zstore.entity.User;
 import com.aqryuz.zstore.entity.Variant;
 import com.aqryuz.zstore.repository.ProductDetailRepository;
 
@@ -25,6 +27,8 @@ public class ProductDetailService {
 	}
 
 	public Variant save(Variant variant){
+		User user = productDetailRepository.findById(variant.getId()).get().getCreatedBy();
+		variant.setCreatedBy(user);
 		return productDetailRepository.save(variant);
 	}
 	
@@ -34,5 +38,9 @@ public class ProductDetailService {
 
 	public Variant findById(Long id) {
 		return productDetailRepository.findById(id).get();
+	}
+
+	public List<Variant> findAllByCreatedBy(User user) {
+		return productDetailRepository.findAllByCreatedBy(user);
 	}
 }

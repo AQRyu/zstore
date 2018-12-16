@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+<link
+	rel="icon"
+	type="image/png"
+	href="/img/favicon.png"
+	th:href="@{/img/favicon.png}" />
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	<div class="notice-wrapper">
+		<div
+			class="show notice error notice-error"
+			th:if="${errorDetails}">
+			<span
+				class="notice-message"
+				th:text="${errorDetails}"></span>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-lg-12">
+			<nav
+				aria-label="breadcrumb"
+				class="d-flex justify-content-center">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item">Shopping cart</li>
+				</ol>
+			</nav>
+			<div class="row page-top">
+				<div class="col-md-10 mx-auto">
+					<h1>Shopping cart</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-9">
+				<div class="primary review-order">
+					<h1>Shipping</h1>
+					<span style="display: inline-block">(Required fields are
+						marked in *)</span>
+				</div>
+				<form
+					id="payment-form"
+					class="needs-validation"
+					th:object="${info}"
+					th:action="@{/checkout}"
+					method="post">
+					<div class="mb-3 mt-3">
+						<label for="name">Name</label> <input
+							type="text"
+							class="form-control"
+							id="name"
+							th:field="*{name}"
+							required
+							readonly>
+						<div class="invalid-feedback">Please enter your shipping
+							address.</div>
+					</div>
+					<div class="mb-3">
+						<label for="email">Email <span class="text-muted"></span></label>
+						<input
+							type="email"
+							class="form-control"
+							id="email"
+							placeholder="you@example.com"
+							th:field="*{email}"
+							readonly>
+						<div class="invalid-feedback">Please enter a valid email
+							address for shipping updates.</div>
+					</div>
+					<div class="mb-3">
+						<label for="address">Address</label> <input
+							type="text"
+							class="form-control"
+							id="address"
+							placeholder="1234 Main St"
+							th:field="*{address}"
+							required
+							readonly>
+						<div class="invalid-feedback">Please enter your shipping
+							address.</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3">
+							<label for="city">City</label> <input
+								type="text"
+								class="form-control"
+								id="city"
+								th:field="*{city}"
+								required
+								readonly />
+							<div class="invalid-feedback">PPlease enter your city.</div>
+						</div>
+						<div class="col-md-6 mb-3">
+							<label for="phone">Phone</label> <input
+								type="text"
+								class="form-control"
+								id="phone"
+								th:field="*{phone}"
+								required
+								readonly>
+							<div class="invalid-feedback">Please enter your phone.</div>
+						</div>
+					</div>
+					<div class="custom-control custom-checkbox">
+						<input
+							type="checkbox"
+							class="custom-control-input"
+							id="save-info"
+							th:field="*{saved}"> <label
+							class="custom-control-label"
+							for="save-info">Save this information for next time</label>
+					</div>
+					<hr class="mb-4">
+					<section>
+						<label for="amount"> <span class="input-label">Amount</span>
+							<span class="input-wrapper amount-wrapper"> <input
+								id="amount"
+								name="amount"
+								type="hidden"
+								min="1"
+								placeholder="Amount"
+								value="10"
+								th:value="${session.amount}" />
+						</span>
+						</label>
+						<div class="bt-drop-in-wrapper">
+							<div id="bt-dropin"></div>
+						</div>
+					</section>
+					<input
+						type="hidden"
+						id="nonce"
+						name="payment_method_nonce" />
+					<hr class="mb-4">
+					<button
+						class="btn btn-primary btn-lg btn-block"
+						type="submit">Checkout</button>
+				</form>
+			</div>
+			<!-- Order summary -->
+			<div class="col-lg-3">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
+					<span class="text-muted">Your cart</span> <span
+						class="badge badge-secondary badge-pill"
+						th:text="${#lists.size(session.cart)}"></span>
+				</h4>
+				<ul
+					class="list-group mb-3"
+					th:each="cartItem : ${session.cart}">
+					<li
+						class="list-group-item d-flex justify-content-between lh-condensed">
+						<div>
+							<h6
+								class="my-0"
+								th:text="${cartItem.productName}">Product name</h6>
+							<small
+								class="text-muted"
+								th:text="${cartItem.quantity}">Brief description</small>
+						</div> <span
+						class="text-muted"
+						th:text="${cartItem.totalPrice}">$12</span>
+					</li>
+				</ul>
+				<div class="list-group-item d-flex justify-content-between">
+					<span>Total (USD)</span> <strong th:text="${session.amount}">$20</strong>
+				</div>
+				<form class="card p-2">
+					<div class="input-group">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Promo code">
+						<div class="input-group-append">
+							<button
+								type="submit"
+								class="btn btn-secondary">Redeem</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- End Order summary -->
+		</div>
+	</div>
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<!-- <script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script> -->
+	<script
+		src="https://js.braintreegateway.com/web/dropin/1.14.1/js/dropin.min.js"></script>
+	<script th:inline="javascript">
+    var form = document.querySelector('#payment-form');
+    var client_token = [[${clientToken}]];
+    var info = [[${info}]];
+
+    braintree.dropin.create({
+      authorization: client_token,
+      container: '#bt-dropin',
+      paypal: {
+        flow: 'vault'
+      }
+    }, function (createErr, instance) {
+      form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      instance.requestPaymentMethod(function (err, payload) {
+        if (err) {
+          console.log('Error', err);
+          return;
+        }
+
+        // Add the nonce to the form and submit
+        document.querySelector('#nonce').value = payload.nonce;
+          form.submit();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

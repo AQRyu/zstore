@@ -21,4 +21,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	public void delete(Product product);
 	public Page<Product> findProductsByCategory(Pageable pageable, @Param(value = "category") String category);
 	public Page<Product> findProductsByCreatedBy(Pageable pageable, @Param(value = "createdBy") User user);
+	public List<Product> findProductsByCreatedBy(@Param(value = "createdBy") User user);
 }

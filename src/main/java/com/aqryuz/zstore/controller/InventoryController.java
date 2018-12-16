@@ -1,10 +1,10 @@
 package com.aqryuz.zstore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,22 +16,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aqryuz.zstore.entity.Product;
 import com.aqryuz.zstore.entity.User;
-import com.aqryuz.zstore.repository.UserRepository;
 import com.aqryuz.zstore.service.ProductService;
-import com.aqryuz.zstore.service.UserService;
+import com.aqryuz.zstore.utils.Pager;
 
 @Controller
-@RequestMapping("/inventory")
+@RequestMapping("/merchant/inventory")
 public class InventoryController {
+	private static final int INITIAL_PAGE = 0;
 	@Autowired
 	private ProductService productService;
-	@Autowired
-	private UserRepository userRepository;
 
 	@GetMapping
 	public String showInventory(Model model,
 			@RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
-			@RequestParam(name = "size", required = false, defaultValue = "10") Integer size,
+			@RequestParam(name = "size", required = false, defaultValue = "4") Integer size,
 			@RequestParam(name = "sort", required = false, defaultValue = "DESC") String sort,
 			@RequestParam(name = "type", required = false, defaultValue = "id") String type
 			) {
@@ -42,14 +40,18 @@ public class InventoryController {
 		if (sort.equals("DESC")) {
 			sortable = Sort.by(type).descending();
 		}
-		Pageable pageable = PageRequest.of(page, size, sortable);
 
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String currentUserName = auth.getName();
-		System.out.println(currentUserName);
-		User user = userRepository.findByEmail(currentUserName).get();
-		System.out.println(user.getEmail());
-		model.addAttribute("products", productService.findAllByUser(pageable, user));
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		int evalPage = (page < 1) ? INITIAL_PAGE : page - 1;
+		Pageable pageable = PageRequest.of(evalPage, size, sortable);
+
+		Page<Product> products = productService.findAllByUser(pageable, user);
+		Pager pager = new Pager(products);
+		System.out.println(pager.getPageSize());
+
+		model.addAttribute("products", products);
+		model.addAttribute("pager", pager);
 		return "merchant/inventory";
 	}	
 

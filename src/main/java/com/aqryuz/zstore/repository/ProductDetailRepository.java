@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.aqryuz.zstore.entity.User;
 import com.aqryuz.zstore.entity.Variant;
 
 @Repository
@@ -19,4 +20,5 @@ public interface ProductDetailRepository extends JpaRepository<Variant, Long>{
 	public Variant findVariantBySize(@Param(value = "size") String size);
 	public void delete(Variant variant);
 	public List<Variant> findAllByProductId(@Param(value = "productId")Long productId);
+	public List<Variant> findAllByCreatedBy(@Param(value = "createdBy") User user);
 }

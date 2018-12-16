@@ -24,15 +24,22 @@ public class OrderLine implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private Long Id;
+	private Long id;
 	
 	@ManyToOne(optional = false)
     @JoinColumn(name="order_id", nullable=false)
 	private Order order;
 	
 	@ManyToOne(optional = false)
-    @JoinColumn(name="product_id", nullable=false)
+    @JoinColumn(name="variant_id", nullable=false)
 	private Variant variant;
+	
+	@ManyToOne(optional = false)
+    @JoinColumn(name="merchant_id", nullable=false)
+	private User merchant;
+	
 	private BigDecimal price;
 	private Integer quantity;
+	//pending, Awaiting shipment, complete, cancel
+	private String status;
 }

@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-		.antMatchers("/inventory", "/merchant").hasAuthority("MERCHANT")
+		.antMatchers("/inventory", "/merchant/**").hasAuthority("MERCHANT")
 		.antMatchers("/checkout").hasAnyAuthority("CUSTOMER")
 		.antMatchers("/admin").hasAnyAuthority("ADMIN")
 		.anyRequest().permitAll()
@@ -42,10 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		web.ignoring().antMatchers("/css/**");
 		web.ignoring().antMatchers("/js/**");
 		web.ignoring().antMatchers("/img/**");
+		web.ignoring().antMatchers("/DataTables/**");
 	}
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
 }

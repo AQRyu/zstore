@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<head>
+<title>ZStore</title>
+<meta
+	content="This demo shows how to integrate Braintree with Spring Boot"
+	name="description" />
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div th:replace="/fragments/header :: topbar"></div>
+		<nav th:replace="/fragments/header :: navbar"></nav>
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="invoice-title">
+					<h2>Invoice</h2>
+					<h3 class="pull-right">Order # <span th:text="${transaction.getId()}"></span></h3>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+							<strong>Shipped To:</strong><br> <span
+								th:text="${customer.name}"></span><br> <span
+								th:text="${customer.address}"></span><br> <span
+								th:text="${customer.city}"></span><br> <span
+								th:text="${customer.phone}"></span>
+						</address>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<address>
+							<strong>Payment Method:</strong><br> <span
+								th:text="${paymentMethod}"></span><br> <span
+								th:text="${creditCard.getCardholderName()}"></span>
+						</address>
+					</div>
+					<div class="col-xs-6 text-right">
+						<address>
+							<strong>Order Date:</strong><br>
+							<span
+								th:text="${new java.text.SimpleDateFormat('HH:mm   dd-MM-yyyy').format(transaction.getCreatedAt().getTime())}"></span>
+						</address>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Order summary</strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<td><strong>Item</strong></td>
+										<td class="text-center"><strong>Price</strong></td>
+										<td class="text-center"><strong>Quantity</strong></td>
+										<td class="text-right"><strong>Totals</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- foreach ($order->lineItems as $line) or some such thing here -->
+									<tr th:each="item : ${orderInfo}">
+										<td th:text="${item.productName}">BS-200</td>
+										<td class="text-center" th:text="${item.price}">$10.99</td>
+										<td class="text-center" th:text="${item.quantity}">1</td>
+										<td class="text-right" th:text="${item.totalPrice}">$10.99</td>
+									</tr>
+									<tr>
+										<td class="thick-line"></td>
+										<td class="thick-line"></td>
+										<td class="thick-line text-center"><strong>Subtotal</strong></td>
+										<td class="thick-line text-right" th:text="${session.amount}">$670.99</td>
+									</tr>
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Shipping</strong></td>
+										<td class="no-line text-right">$10</td>
+									</tr>
+									<tr>
+										<td class="no-line"></td>
+										<td class="no-line"></td>
+										<td class="no-line text-center"><strong>Total</strong></td>
+										<td class="no-line text-right" th:text="${session.amount} + 10">$685.99</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script
+		type="text/javascript"
+		th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

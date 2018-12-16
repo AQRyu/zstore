@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "products")
 public class Product extends Auditable implements Serializable{
-	private static final long serialVersionUID = -5090002009914826336L;
+	private static final long serialVersionUID = -3176501715539191096L;
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -33,6 +34,7 @@ public class Product extends Auditable implements Serializable{
 	@Transient
 	private MultipartFile image;
 	private String imageName;
+	@Lob
 	private String description;
 	private String status;
 	private String category;

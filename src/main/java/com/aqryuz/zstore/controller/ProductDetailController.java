@@ -19,7 +19,7 @@ import com.aqryuz.zstore.service.ProductDetailService;
 import com.aqryuz.zstore.service.ProductService;
 
 @Controller
-@RequestMapping("/inventory/product")
+@RequestMapping("/merchant/inventory/product")
 public class ProductDetailController {
 	@Autowired
 	private ProductService productService;
