@@ -402,7 +402,7 @@ public class Seeder implements CommandLineRunner{
 
 		ProductRepository.save(women4);
 		ProductDetailRepository.save(women41);
-		
+
 		Product women5 = new Product();
 		women5.setName("Letter Print Contrast Asymmetric Tee - White And Black");
 		women5.setPrice(new BigDecimal(10));
@@ -426,7 +426,7 @@ public class Seeder implements CommandLineRunner{
 
 		ProductRepository.save(women5);
 		ProductDetailRepository.save(women51);
-		
+
 		Product women6 = new Product();
 		women6.setName("Striped Knitted Tee - Medium Sea Green");
 		women6.setPrice(new BigDecimal(10));
@@ -542,9 +542,9 @@ public class Seeder implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*roleSeeds();
+		roleSeeds();
 		userSeeds();
-		productSeed();*/
+		/*productSeed();*/
 	}
 
 }

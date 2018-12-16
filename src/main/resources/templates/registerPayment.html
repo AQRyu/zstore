@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	href="css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet"
+	href="/css/owl.carousel.css">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet"
+	href="css/owl.theme.default.css">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	href="css/style.default.css"
+	id="theme-stylesheet">
+<link
+	rel="icon"
+	type="image/png"
+	href="/img/favicon.png"
+	th:href="@{/img/favicon.png}" />
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	<div class="notice-wrapper">
+		<div
+			class="show notice error notice-error"
+			th:if="${errorDetails}">
+			<span
+				class="notice-message"
+				th:text="${errorDetails}"></span>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9">
+				<div class="primary review-order">
+					<h1>Payment</h1>
+				</div>
+				<form
+					id="payment-form"
+					class="needs-validation"
+					th:action="@{/registerPayment}"
+					method="post">
+					<section>
+						<label for="amount"> <span class="input-label">You have to pay:</span>
+							<span class="input-wrapper amount-wrapper"> <input
+								id="amount"
+								name="amount"
+								readonly
+								th:value="${amount}" />$
+						</span>
+						</label>
+						<div class="bt-drop-in-wrapper">
+							<div id="bt-dropin"></div>
+						</div>
+					</section>
+					<input
+						type="hidden"
+						id="nonce"
+						name="payment_method_nonce" />
+						<input
+						type="hidden"
+						id="id"
+						th:value=*{id}
+						name="id" />
+					<hr class="mb-4">
+					<button
+						class="btn btn-primary btn-lg btn-block"
+						type="submit">Submit</button>
+				</form>
+			</div>
+			<!-- Order summary -->
+		</div>
+	</div>
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<!-- <script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script> -->
+	<script
+		src="https://js.braintreegateway.com/web/dropin/1.14.1/js/dropin.min.js"></script>
+	<script th:inline="javascript">
+    var form = document.querySelector('#payment-form');
+    var client_token = [[${clientToken}]];
+    var info = [[${info}]];
+
+    braintree.dropin.create({
+      authorization: client_token,
+      container: '#bt-dropin',
+      paypal: {
+        flow: 'vault'
+      }
+    }, function (createErr, instance) {
+      form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      instance.requestPaymentMethod(function (err, payload) {
+        if (err) {
+          console.log('Error', err);
+          return;
+        }
+
+        // Add the nonce to the form and submit
+        document.querySelector('#nonce').value = payload.nonce;
+          form.submit();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	id="theme-stylesheet">
+<!-- <link
+	th:href="@{/css/style.css}"
+	rel="stylesheet"> -->
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<div th:replace="/fragments/header :: intro-slider"></div>
+	<nav th:replace="/fragments/header :: navbar"></nav>
+	<div class="container">
+		<div align="left" th:text="${message}"></div>
+	</div>
+	
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+</body>
+</html>

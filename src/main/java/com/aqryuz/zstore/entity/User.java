@@ -38,6 +38,10 @@ public class User implements UserDetails{
 	private String phone;
 	private boolean enabled;
 	private LocalDateTime expiredDate;
+	@Transient
+	private Integer month;
+	@Transient
+	private String type;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name="role_id", nullable=false)

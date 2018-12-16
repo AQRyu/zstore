@@ -67,7 +67,8 @@
 							th:href="@{/cart}"
 							href="basket.html"
 							class="btn btn-outline-dark"><i class="fa fa-shopping-cart"></i><span><span
-								th:text="${#lists.size(session.cart)}" th:unless="${session.cart} == null"></span> Items in cart</span></a>
+								th:text="${#lists.size(session.cart)}"
+								th:unless="${session.cart} == null"></span> Items in cart</span></a>
 					</div>
 					<div class="top_bar_user">
 						<div
@@ -77,7 +78,7 @@
 						</div>
 						<div sec:authorize="isAnonymous()">
 							<div>
-								<a href="#">Register</a>
+								<a th:href="@{|/register?role=CUSTOMER|}">Register</a>
 							</div>
 							<div>
 								<a
@@ -179,6 +180,10 @@
 						th:href="@{/contact}"
 						href="contact"
 						class="nav-link">Contact</a></li>
+					<li class="nav-item"><a
+						th:href="@{|/register?role=MERCHANT|}"
+						href="contact"
+						class="nav-link">Become a merchant</a></li>
 				</ul>
 			</div>
 			<div class="collapsed-search collapse">

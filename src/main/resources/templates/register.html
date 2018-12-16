@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge">
+<title>Hunter - Hipster Ecommerce Bootstrap Theme</title>
+<meta
+	name="description"
+	content="">
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1">
+<meta
+	name="robots"
+	content="all,follow">
+<!-- Bootstrap CSS-->
+<!-- Google fonts - Montserrat for headings, Raleway for copy-->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<!-- Bootstrap core CSS -->
+<link
+	th:href="@{/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- Font Awesome -->
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- owl carousel-->
+<link
+	th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet">
+<link
+	th:href="@{/css/owl.theme.default.css}"
+	rel="stylesheet">
+<!-- theme stylesheet-->
+<link
+	th:href="@{/css/style.default.css}"
+	rel="stylesheet"
+	id="theme-stylesheet">
+<!-- <link
+	th:href="@{/css/style.css}"
+	rel="stylesheet"> -->
+</head>
+<body>
+	<div th:replace="/fragments/header :: topbar"></div>
+	<!-- Default form register -->
+	<div class="container">
+		<form
+			th:action="@{/register}"
+			class="text-center border border-light p-5"
+			method="post"
+			th:object="${user}">
+			<p class="h4 mb-4">Sign up</p>
+			<input th:field="*{role}" hidden=true>
+			<!-- Name -->
+			<input
+				type="text"
+				id="name"
+				th:field="*{name}"
+				class="form-control mb-4"
+				placeholder="Name">
+			<!-- E-mail -->
+			<input
+				type="email"
+				id="email"
+				th:field="*{email}"
+				class="form-control mb-4"
+				placeholder="E-mail">
+			<!-- Password -->
+			<input
+				type="password"
+				id="password"
+				th:field="*{password}"
+				class="form-control mb-4"
+				placeholder="Password"
+				aria-describedby="defaultRegisterFormPasswordHelpBlock">
+			<!-- Phone number -->
+			<input
+				type="text"
+				id="phone"
+				th:field="*{phone}"
+				class="form-control"
+				placeholder="Phone number"
+				aria-describedby="defaultRegisterFormPhoneHelpBlock">
+			<hr class="mb-4">
+			<!-- Address -->
+			<input
+				type="text"
+				id="address"
+				th:field="*{address}"
+				class="form-control mb-4"
+				placeholder="1234 main street">
+			<!-- City -->
+			<input
+				type="text"
+				id="city"
+				th:field="*{city}"
+				class="form-control mb-4"
+				placeholder="New York">
+			<!-- Newsletter -->
+			<div class="custom-control custom-checkbox">
+				<input
+					type="checkbox"
+					class="custom-control-input"
+					id="defaultRegisterFormNewsletter"> <label
+					class="custom-control-label"
+					for="defaultRegisterFormNewsletter">Subscribe to our
+					newsletter</label>
+			</div>
+			<div th:if="${user.role.name} == 'MERCHANT'">
+				<input
+					type="number"
+					id="month"
+					th:field="*{month}"
+					class="form-control mb-4"
+					placeholder="Number of months to register">
+				<p class="text-muted">Type:</p>
+				<select
+					th:field="*{type}"
+					id="type"
+					class="form-control mb-4">
+					<option
+						value="Individual"
+						selected>Individual</option>
+					<option value="Company">Company</option>
+				</select>
+			</div>
+			<!-- Sign up button -->
+			<button
+				class="btn btn-info my-4 btn-block"
+				type="submit">Sign up</button>
+			<!-- Social register -->
+			<hr>
+			<!-- Terms of service -->
+			<p>
+				By clicking <em>Sign up</em> you agree to our <a
+					href=""
+					target="_blank">terms of service</a>
+		</form>
+	</div>
+	<!-- Default form register -->
+	<footer th:replace="/fragments/footer :: footer"></footer>
+	<!-- JavaScript files-->
+	<script
+		th:src="@{/js/jquery-3.3.1.min.js}"
+		src="js/jquery-3.3.1.min.js"></script>
+	<script
+		th:src="@{/js/popper.min.js}"
+		src="js/popper.min.js">
+		
+	</script>
+	<script
+		th:src="@{/js/bootstrap.min.js}"
+		src="js/bootstrap.min.js"></script>
+	<script
+		th:src="@{/js/jquery.cookie.js}"
+		src="js/jquery.cookie.js">
+		
+	</script>
+	<script
+		th:src="@{/js/owl.carousel.min.js}"
+		src="js/owl.carousel.min.js"></script>
+	<script
+		th:src="@{/js/front.js}"
+		src="js/front.js"></script>
+</body>
+</html>
